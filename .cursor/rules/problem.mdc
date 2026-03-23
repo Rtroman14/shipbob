@@ -1,0 +1,41 @@
+---
+description: Automate claim review, decision, and drafting with human approval before sending.
+globs:
+alwaysApply: false
+---
+
+### Background
+
+ShipBob is a third-party logistics (3PL) company. Merchants sell products online — ShipBob stores their inventory, picks and packs orders, and ships them to end customers.
+
+Sometimes things go wrong in transit. A package arrives crushed, a product is broken, contents are missing. When that happens, the merchant opens a support case with ShipBob. ShipBob's merchant care team reviews the case and decides whether to reimburse the merchant for the damaged goods.
+
+This process is called a damaged-in-transit claim.
+
+---
+
+### The Problem
+
+Every damaged-in-transit claim is handled manually by a support rep today. They open the case, review the merchant's description and attachments, check whether the claim qualifies, draft a response, and send it — all by hand.
+
+It's slow, it's inconsistent, and it doesn't scale. A rep might handle the same situation differently on different days. Merchants wait longer than they should. Valid claims get delayed. Reps spend time on work that follows a clear, repeatable pattern.
+
+We want to automate this. How is up to you.
+
+---
+
+### How It Works Today
+
+A rep gets a case. Before they look at anything else, they ask: can this claim even be processed? Some cases come in that are dead on arrival — the shipment is too old, the claim type is wrong, key information is missing. Those get closed with an explanation to the merchant. After this window, ShipBob cannot reimburse. Insured shipments are a different process entirely.
+
+If the claim clears that bar, the rep turns to the evidence. ShipBob needs four things before it can make a reimbursement decision — proof of what was ordered and at what price, confirmation from the end customer that the damage actually happened, photos of the damaged product, and photos of the outer packaging the order arrived in. If anything is missing, the rep goes back to the merchant. They don't guess. They wait.
+
+Once all evidence is present, the rep makes a judgment call. She checks whether the damage is actually visible. She needs to be able to identify the damaged product from the photos. The product needs to appear on the invoice. The outer packaging needs to be documented — not necessarily damaged, just present. If any of these fail, she goes back to the merchant again. If all of them pass, she approves the claim.
+
+Reimbursement is based on the invoice — the price at time of fulfillment, after discounts, for the specific damaged item only. Not the whole order. Capped at $100.
+
+Then she writes an email and sends it.
+
+We don't want to remove the human from this loop entirely. A rep reviewing a draft before it goes out is a feature, not an inefficiency — it's how mistakes get caught, tone gets calibrated, and accountability stays with a person. The flow we're aiming for: the system drafts a recommendation and presents it to the rep for review. The rep can approve it as-is, push back with feedback, or edit it herself. Only after explicit approval does anything go to the merchant.
+
+Not every case is equal. A claim for a high-value shipment warrants more care than a routine approval. Certain merchants have history a rep would want to know about before hitting send. The system should make it easy for that context — and for the rep's corrections — to carry forward. Not just on this case. On the next one too.
