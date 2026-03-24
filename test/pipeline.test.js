@@ -6,16 +6,9 @@ import {
     makeDecision,
     draftEmail,
 } from "../lib/pipeline.js";
+import { createApi } from "../lib/api.js";
 
-const API_BASE = "https://e41238c7-aefe-4d20-8866-747c74eac48f.mock.pstmn.io";
-
-const api = async (path, options = {}) => {
-    const fetchOptions = { method: options.method || "GET", redirect: "follow" };
-    if (options.body) fetchOptions.body = options.body;
-    const res = await fetch(`${API_BASE}${path}`, fetchOptions);
-    if (!res.ok) throw new Error(`API ${fetchOptions.method} ${path}: ${res.status}`);
-    return res.json();
-};
+const api = createApi(process.env.SHIPBOB_API_BASE_URL);
 
 const evaluateClaim = async (case_id) => {
     console.log(`\n${"=".repeat(70)}`);
