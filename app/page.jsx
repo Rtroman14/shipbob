@@ -44,6 +44,7 @@ import {
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { ClaimEvaluation } from "@/components/claim-evaluation";
+import { MerchantContextSaved } from "@/components/merchant-context-saved";
 
 const CASE_SUGGESTIONS = [1001, 1002, 1003, 1004, 1005].map(
     (n) => `Evaluate CASE-${n}`
@@ -256,6 +257,19 @@ export default function Chat() {
                                                             addToolApprovalResponse
                                                         }
                                                     />
+                                                </div>
+                                            );
+                                        }
+
+                                        if (part.type === "tool-save_merchant_context") {
+                                            return (
+                                                <div key={`${message.id}-tool-${i}`}>
+                                                    <ToolPart part={part} />
+                                                    {part.state === "output-available" && (
+                                                        <MerchantContextSaved
+                                                            input={part.input}
+                                                        />
+                                                    )}
                                                 </div>
                                             );
                                         }
